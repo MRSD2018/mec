@@ -1,0 +1,14 @@
+%Render Unit Vector
+%Displays a unit vector at the specified position and direction
+function Render_Transform(plot, Origin, Dir) 
+  UnitDir = Dir./norm(Dir);
+  OrthDirection = UnitDir-[0;0;1]*dot(UnitDir, [0;0;1])
+  UnitOrth = OrthDirection./norm(OrthDirection);
+  
+  Points = [Origin, Origin + UnitDir, Origin + 0.8*UnitDir+0.125*UnitOrth, ...
+            Origin + 0.8*UnitDir-0.125*UnitOrth, Origin + UnitDir];
+  figure(plot);
+  hold on;
+  Points(1,:)
+  plot3(Points(1,:), Points(2,:), Points(3,:));
+end
