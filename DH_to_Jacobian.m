@@ -7,8 +7,8 @@ function [jv, jw] = DH_to_Jacobian(DH)
 
 %Inputs: DH = nx4 table of DH parameters
 %        jointTypes = horizontal array of ints: 1 if revolute, 0 if prismatic
-%outputs: H = 4x4xn table of homogeneous matrices
-%         E = 4x4 ground frame to end effector matrix
+%outputs: jv = 3xn linear jacobian
+%         jw = 3xn angular jacobian
 
     [H, E] = DH_to_Transform(DH);
 
