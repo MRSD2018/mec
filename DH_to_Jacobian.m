@@ -1,4 +1,4 @@
-function [jv, jw] = DH_to_Jacobian(DH, jointTypes)
+function [jv, jw] = DH_to_Jacobian(DH)
 %D-H Table to Jacobian 
 %For your variable component, creat a "symbolic variable" 
 %To create a symbolic variable, initialize with: "syms theta alpha etc..."
@@ -11,12 +11,11 @@ function [jv, jw] = DH_to_Jacobian(DH, jointTypes)
 %         E = 4x4 ground frame to end effector matrix
 
     [H, E] = DH_to_Transform(DH);
-    jv = zeros(3, size(jointTypes, 2));
-    jw = zeros(3, size(jointTypes, 2));
+
     
-    jv = sym('a',3);
-    jw = sym('a',3);
-    for i = 1:size(jointTypes,2)
+    jv = sym('a',[3, size(DH,1)]);
+    jw = sym('a',[3, size(DH,1)]);
+    for i = 1:size(DH, 1)
         h = eye(4);
         for j = 1:i 
             if (j > 1)
@@ -24,10 +23,10 @@ function [jv, jw] = DH_to_Jacobian(DH, jointTypes)
             end
         end
             
-        if jointTypes(i)== 0
+        if isequal(DH(i,1),0)
             jw(:,i) = [0;0;0];
             jv(:,i) = h(1:3,1:3)* [0;0;1];
-        elseif jointTypes(i) == 1
+        elseif ~isequal(DH(i,1),0)
             jw(:,i) = h(1:3,1:3)*[0;0;1];
             on = E*[0;0;0;1];
             oi = h*[0;0;0;1];
