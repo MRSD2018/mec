@@ -22,10 +22,10 @@ function [jv, jw] = DH_to_Jacobian(DH)
             end
         end
             
-        if isequal(DH(i,1),0)
+        if logical(DH(i,1)==0)
             jw(:,i) = [0;0;0];
             jv(:,i) = h(1:3,1:3)* [0;0;1];
-        elseif ~isequal(DH(i,1),0)
+        elseif logical(DH(i,1)~=0)
             jw(:,i) = h(1:3,1:3)*[0;0;1];
             on = E*[0;0;0;1];
             oi = h*[0;0;0;1];
