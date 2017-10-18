@@ -8,7 +8,7 @@
 %outputs: H = 4x4xn table of homogeneous matrices
 %         E = 4x4 ground frame to end effector matrix
 
-function [H E]= DH_to_Transform(DH) 
+function [H, E]= DH_to_Transform(DH) 
 E=eye(4);
 
 for i=1:size(DH,1)
