@@ -14,14 +14,9 @@ function [jv, jw] = DH_to_Jacobian(DH)
     
     jv = sym('a',[3, size(DH,1)]);
     jw = sym('a',[3, size(DH,1)]);
-    for i = 1:size(DH, 1)
-        h = eye(4);
-        for j = 1:i 
-            if (j > 1)
-                h = h * H(:,:,i-1);
-            end
-        end
-            
+    h = eye(4);
+    for i = 1:size(DH, 1) 
+                    
         if logical(DH(i,1)==0)
             jw(:,i) = [0;0;0];
             jv(:,i) = h(1:3,1:3)* [0;0;1];
@@ -29,7 +24,9 @@ function [jv, jw] = DH_to_Jacobian(DH)
             jw(:,i) = h(1:3,1:3)*[0;0;1];
             on = E*[0;0;0;1];
             oi = h*[0;0;0;1];
-            jv(:,i) = cross(h(1:3,1:3)*[0;0;1], (on(1:3) - oi(1:3)));
+            jv(:,i) = simplify(cross(h(1:3,1:3)*[0;0;1], (on(1:3) - oi(1:3))));
         end 
+        
+        h = h * H(:,:,i);
     end     
 end
