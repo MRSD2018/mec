@@ -1,0 +1,120 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3117,        110]
+NotebookOptionsPosition[      2813,         96]
+NotebookOutlinePosition[      3157,        111]
+CellTagsIndexPosition[      3114,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"position", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"4", 
+       RowBox[{"Cos", "[", 
+        SubscriptBox["t", "1"], "]"}]}], "+", 
+      RowBox[{"3", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         SubscriptBox["t", "1"], "+", 
+         SubscriptBox["t", "2"]}], "]"}]}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"4", 
+       RowBox[{"Sin", "[", 
+        SubscriptBox["t", "1"], "]"}]}], "+", 
+      RowBox[{"3", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         SubscriptBox["t", "1"], "+", 
+         SubscriptBox["t", "2"]}], "]"}]}]}], ",", " ", 
+     RowBox[{
+      SubscriptBox["t", "1"], "+", 
+      SubscriptBox["t", "2"]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"speed", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Outer", "[", 
+     RowBox[{"D", ",", " ", "position", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["t", "1"], ",", " ", 
+        SubscriptBox["t", "2"]}], "}"}]}], "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{
+      OverscriptBox[
+       SubscriptBox["t", "1"], "."], ",", " ", 
+      OverscriptBox[
+       SubscriptBox["t", "2"], "."]}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["K", "2"], " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "2"], 
+    SubscriptBox["m", "2"], 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"speed", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"speed", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "2"]}], ")"}]}], "+", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    SubscriptBox["II", "2"], "*", 
+    SuperscriptBox[
+     RowBox[{"speed", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], "2"]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["P", "2"], " ", "=", " ", 
+  RowBox[{
+   SubscriptBox["m", "2"], "*", "g", "*", 
+   RowBox[{"speed", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  SubscriptBox["L", "2"], " ", "=", " ", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    SubscriptBox["K", "2"], " ", "-", " ", 
+    SubscriptBox["P", "2"]}], "]"}]}]}], "Input",ExpressionUUID->"2ba6ea17-\
+123b-4bde-aba2-ed57e11502f1"]
+},
+WindowSize->{759, 813},
+WindowMargins->{{171, Automatic}, {Automatic, 31}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2251, 74, 172, "Input", "ExpressionUUID" -> \
+"2ba6ea17-123b-4bde-aba2-ed57e11502f1"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
