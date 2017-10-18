@@ -6,7 +6,6 @@ function [jv, jw] = DH_to_Jacobian(DH)
 %may need to wround (ex: sin(pi/2) does not always equal 1 in MATLAB!
 
 %Inputs: DH = nx4 table of DH parameters
-%        jointTypes = horizontal array of ints: 1 if revolute, 0 if prismatic
 %outputs: jv = 3xn linear jacobian
 %         jw = 3xn angular jacobian
 
